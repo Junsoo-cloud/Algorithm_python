@@ -33,4 +33,3 @@ if __name__ == "__main__":
     
     print(ls)
 
-# 1-2 Sentinel Method -> 내일 .. 
