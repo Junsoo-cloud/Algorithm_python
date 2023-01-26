@@ -15,17 +15,6 @@ from __future__ import annotations
 
 
 # key(value of element) % (numbers of element) = hash value(Index of hash table)
-
-a = [5,6,14,20,29,34,37,51,69,75]
-
-hv_list = []
-
-for i in a:
-    hv = i % len(a)
-    hv_list.append(hv)
-
-    
-print(hv_list)
     
 # isinstance Method
 # numbers = [1, 2, 3, 4, 2, 5]
@@ -67,6 +56,7 @@ class ChainHash(object):
         self.table = [None] * self.capacity
         
     def hash_value(self, key: Any) -> int:
+        '''return hash value of key'''
         if isinstance(key, int): # isinstance method : isinstance(object, classinfo) -> bool 
             return key % self.capacity
         # key가 int가 아닌 경우도 return 하는 method들이 있는데 , 뭔말인지 몰라서 int형인것만 하겠다
@@ -83,7 +73,41 @@ class ChainHash(object):
             p = p.next
             
         return None
-
-if __name__ == '__main__':
-    is_num_1 = Node()
     
+    def add(self, key:Any, value: Any) -> bool:
+        hash = self.hash_value(key) # hash : hash value of inputed key
+        p = self.table[hash] # hash value 
+        
+        while p is not None:
+            if p.key == key: # already exsisted Node (p.key) == append key:
+                return False # Fail append
+            p = p.next # Make new Node & focus Next Node
+            
+        temp = Node(key, value, self.table[hash])
+        self.table[hash] = temp # Make Node
+        return True    # success append
+                
+    # def remove(self, key: Any) -> bool:
+    #     '''remove element of key'''
+    #     hash = self.hash_value(key)
+    #     p = self.table[hash]
+    #     pp = None
+        
+    #     while p is not None:
+    #         if p.key == key:
+    #             if pp is None:
+    
+    def dump(self) -> None:
+        '''Dump Hash table'''
+        for i in range(self.capacity):
+            p = self.table[i]
+            print(i, end = '')
+            while p is not None:
+                print(f'    -> {p.key} ({p.value})', end = '')
+                p = p.next
+            print()
+        
+    
+    
+# Open Addressing(Closed Hashing)
+
