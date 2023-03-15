@@ -14,6 +14,7 @@ for _ in range(m):
     else:
         for _ in range(c):
             ad.append(matrix[a-1].pop())
+            # 0번에 넣는것은 insert() 사용
         matrix[a-1] += ad
 res = 0
 s = 0

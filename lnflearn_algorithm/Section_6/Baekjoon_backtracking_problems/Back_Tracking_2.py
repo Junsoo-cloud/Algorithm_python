@@ -5,19 +5,17 @@
 
 import sys
 sys.stdin=open('input.txt', 'r')
-def DFS(v):
-    if v == m:
-        for i in range(m):
-            print(a[i], end = ' ')
-        print()
+# Sol_1: N으로 설정 -> 종료조건을 M으로 설정
+def DFS(n, lst):
+    if n > N:
+        if len(lst) == M:
+            ans.append(lst)
         return
-    else:
-        for i in range(v+1, n+1):
-            if i not in a:
-                a.append(i)
-                DFS(v+1)
-                a.pop()
+    DFS(n+1, lst+[n]) 
+    DFS(n+1, lst)
 if __name__ == "__main__":
-    n, m = map(int, input().split())
-    a = []
-    DFS(0)
+    ans = []
+    N, M = map(int, input().split())
+    DFS(1, [])
+    for a in ans:
+        print(*a)

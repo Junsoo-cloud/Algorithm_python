@@ -1,5 +1,3 @@
-# More Study: List_Comprehension, Deque, lambda(filter,map), counter, defaultdict(also collections), split, join, sorted & sort, 
-
 '''1.Valid-Palindrome'''
 # Case_1 -> Use isalnum() , strs.pop(0) vs strs.pop() 
 class Solution:
@@ -108,4 +106,30 @@ class Solution:
         for char in strs:
             anagrams[''.join(sorted(char))].append(char)
         return anagrams.values()
+
+
+    
+    
+    
+# More Study: List_Comprehension, Deque, lambda(filter,map), counter, defaultdict(also collections), split, join, sorted & sort, 
+
+# 1. List Comprehension : [expression for variable in list]
+
+# [표현식 for 변수 in 리스트] -> [n*n for n in array]
+# [표현식 for 변수 in 리스트 조건문] -> [n for n in range(20) if n%2 == 0]
+# [표현식 if 조건 else 표현식 for 변수 in 리스트] -> [n if n > 0 else 0 for n in array ]
+
+
+
+# 2-0 collections (container형 자료형)
+
+# namedtuple(): 이름 붙은 필드를 갖는 튜플 서브 클래스를 만들기 위한 팩토리 함수
+# deque: 양쪽 끝에서 빠르게 추가와 삭제를 할 수 있는 리스트류 컨테이너
+# ChainMap: 여러 매핑의 단일 뷰를 만드는 딕셔너리류 클래스
+# Counter: 해시 가능한 객체를 세는 데 사용하는 딕셔너리 서브 클래스 -> key: value = 값 : 개수
+# OrderedDict: 항목이 추가된 순서를 기억하는 딕셔너리 서브 클래스
+# defaultdict: 누락된 값을 제공하기 위해 팩토리 함수를 호출하는 딕셔너리 서브 클래스 -> key가 없어도 오류 x
+# UserDict: 더 쉬운 딕셔너리 서브 클래싱을 위해 딕셔너리 객체를 감싸는 래퍼
+# UserList: 더 쉬운 리스트 서브 클래싱을 위해 리스트 객체를 감싸는 래퍼
+# UserString: 더 쉬운 문자열 서브 클래싱을 위해 문자열 객체를 감싸는 래퍼
 
