@@ -12,10 +12,9 @@ def DFS(v):
         print(' '.join(map(str, res)))
     else:
         for i in range(v, n+1):
-            if i not in res:
-                res.append(i)
-                DFS(v+1)
-                res.pop()
+            res.append(i)
+            DFS(i)
+            res.pop()
 if __name__ == "__main__":
     n, m = map(int, input().split())
     res = []
