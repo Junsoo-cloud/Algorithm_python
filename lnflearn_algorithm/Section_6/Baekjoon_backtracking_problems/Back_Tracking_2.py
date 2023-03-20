@@ -8,7 +8,7 @@ sys.stdin=open('input.txt', 'r')
 def DFS(v):
     if len(res) == m:
         print(' '.join(map(str, res)))
-    for i in range(v, n+1):
+    for i in range(v, n+1): # 결국은 v가 증가하면서 증가수열 생성
         if i not in res:
             res.append(i)
             DFS(i)
