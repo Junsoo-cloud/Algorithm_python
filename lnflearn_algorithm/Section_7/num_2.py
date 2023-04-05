@@ -1,23 +1,21 @@
-'''Num_2: 휴가(DFS 활용)'''
+'''Num_2: 휴가 (DFS)''' # 230405 clear
 import sys
 sys.stdin=open('input.txt', 'r')
-def DFS(L, time, tot_sum):
+def DFS(L, B):
     global Max
-    if time > N:
-        return
     if L >= N:
-        if tot_sum > Max:
-            Max = tot_sum
+        if B > Max:
+            Max = B
         return
     else:
-        DFS(L+num[L][0], time+num[L][0], tot_sum+num[L][1])
-        DFS(L+1, time, tot_sum)
+        DFS(L+num[L][0] , B+num[L][1])
+        DFS(L+1, B)
 if __name__ == "__main__":
     N = int(input())
     num = []
-    Max = 0
     for _ in range(N):
-        t, p = map(int, input().split())
-        num.append((t, p))
-    DFS(0, 0, 0)
-    print(Max)
+        T, P = map(int, input().split())
+        num.append((T, P))
+    Max = 0
+    DFS(0, 0)
+    print(Max) # 60

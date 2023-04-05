@@ -1,23 +1,21 @@
-'''Num_1: 최대점수 구하기 (DFS)'''
+'''Num_1: 최대점수 구하기(DFS)''' #230405 clear
+
 import sys
-sys.stdin=open('input.txt')
-def DFS(L, score, tsum):
+sys.stdin=open('input.txt', 'r')
+def DFS(L, S, T):
     global Max
-    if tsum > m:
+    if T > M:
         return
-    if L==n:
-        if score > Max:
-            Max = score
+    if L == N:
+        if Max < S:
+            Max = S
         return
     else:
-        DFS(L+1, score+a[L][0], tsum+a[L][1])
-        DFS(L+1, score, tsum)
+        DFS(L+1, S+num[L][0], T+num[L][1])
+        DFS(L+1, S, T)
 if __name__ == "__main__":
-    a = []
-    n, m = map(int, input().split())
+    N, M = map(int, input().split())
+    num = [list(map(int, input().split())) for _ in range(N)]
     Max = 0
-    for _ in range(n):
-        s, t = map(int, input().split())
-        a.append((s, t))
     DFS(0, 0, 0)
     print(Max)
