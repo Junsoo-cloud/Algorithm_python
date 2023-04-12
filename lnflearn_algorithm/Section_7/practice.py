@@ -1,22 +1,18 @@
-# 5 0
-# -7 -3 -2 5 8
-import sys
-sys.stdin=open('input.txt', 'r')
-def DFS(L, F):
-    print(sum(res))
-    global cnt
-    if L == N:
-        if sum(res) == S:
-            cnt += 1
-        return
-    else:
-        for i in range(F, N):
-            res[L] = nums[i]
-            DFS(L+1, i+1)
-if __name__ == "__main__":
-    N, S = map(int, input().split())
-    nums = list(map(int, input().split()))
-    res = [0]*N
-    cnt = 0 
-    DFS(0, 0)
-    print(cnt)
+N = int(input())
+a, b = 3, 5
+r1 = 0
+r2 = 0
+while True:
+    t1 = (N//b)
+    t2 = (N-b*(N//b)//a)
+    r1 = t1+t2
+    if b*t1+a*t2 != N:
+        print(-1)   
+    t1 = (N//a)
+    t2 = 0
+    r2 = t1
+    if b*t1+a*t2!= N:
+        print(-1)       
+    res = min(r1, r2)
+    print(res)
+    break
