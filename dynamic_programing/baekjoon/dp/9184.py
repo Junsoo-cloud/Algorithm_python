@@ -1,6 +1,8 @@
 import sys
 sys.stdin=open('input.txt', 'r')
-def dp(a,b,c):
+
+# 3차원 리스트
+def w(a,b,c):
     if a_memo[a] != 0 and b_memo[b] != 0 and c_memo[c] != 0:
         return (a_memo[a], b_memo[b], c_memo[c])
     else:
@@ -13,10 +15,9 @@ def dp(a,b,c):
         return dp(a, b, c-1) + dp(a, b-1, c-1) - dp(a, b-1, c)
     else:
         return dp(a-1, b, c) + dp(a-1, b-1, c) + dp(a-1, b, c-1) - dp(a-1, b-1, c-1)
-a_memo = [0]*10000
-b_memo = [0]*10000
-c_memo = [0]*10000
+dp = [[[0]*(21) for _ in range(21)]]
 while True:
     nums = list(map(int, input().split()))
     if nums[0] == nums[1] == nums[2] == -1:
-        exit()
+        break
+
