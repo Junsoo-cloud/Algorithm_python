@@ -7,3 +7,4 @@ for i in range(1, len(array)):
         else:
             break # 자기보다 작은 데이터 만나면 멈춤
 print(array)
+
