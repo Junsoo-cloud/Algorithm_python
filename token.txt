@@ -1,0 +1,18 @@
+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
+
+
+퀵정렬
+https://www.youtube.com/watch?v=O-O-90zX-U4
+https://www.youtube.com/watch?v=gBcUO_6JXIA
+힙정렬
+https://www.youtube.com/watch?v=iyl9bfp_8ag
+병합정렬
+https://www.youtube.com/watch?v=ctkuGoJPmAE
+바이너리서치
+
+최단경로 -> 다익스트라, 플로이드와샬
+
+
+time complexity
+
+https://www.youtube.com/watch?v=9TlHvipP5yA
